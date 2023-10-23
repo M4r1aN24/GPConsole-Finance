@@ -86,8 +86,6 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
-// var profit/losses = all the numbers on right side
-// every array has 1 string and 1 number - if I want to print out a month's profit/loss we will do it : 
 
 console.log("Financial Analysis");
 console.log("-----------------");
