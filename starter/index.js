@@ -89,21 +89,62 @@ var finances = [
 // var profit/losses = all the numbers on right side
 // every array has 1 string and 1 number - if I want to print out a month's profit/loss we will do it : 
 
+console.log("Financial Analysis");
+console.log("-----------------");
+
+
 var totalMonths = 0;
 
 for (var i = 0; i < finances.length; i++) {
-    console.log("Total Months: " + finances[i][0]);
     totalMonths = totalMonths + finances[i][0];
 }
+console.log("Total Months: " + totalMonths);
 
+var totalSum = 0;
+
+for (var i = 0; i < finances.length; i++) {
+    totalSum = totalSum + finances[i][1];
+}
+
+console.log("Total: "  + totalSum);
 
 for (var i = 1; i < finances.length; i++) { // i = i - 1 is the same as i--
   var howMuchIsGoneNow = finances[i][1];
-  var howMuchWasGoneLastWeek = finances[i - 1][1];
-  var howMuchIAteThisWeek = howMuchIsGoneNow - howMuchWasGoneLastWeek;
-  console.log("Average Changes: " + howMuchIAteThisWeek + i);
+  var lastMonth = finances[i - 1][1];
+  var howMuchRemained = howMuchIsGoneNow - lastMonth;
+  console.log("Month to month changes: " + howMuchRemained + i);
 
 }
+
+var averageChange = howMuchRemained / finances.length;
+console.log("Average Change: " + averageChange);
+
+
+ /* Max number code - start  */ 
+var maxNumber = 0;
+for (var i = 0; i < finances.length; i+=1) {
+    if (finances[i] > maxNumber) {
+        maxNumber = finances[i];
+  }
+}
+console.log("Greatest Increase in Profits/Losses: " + maxNumber);
+
+/* Max number code - end  */ 
+
+/* Min number code - start  */ 
+var minNumber = 0;
+
+for (var j = 0; j > finances.length; j++) {
+  if (finances[j] < minNumber) {
+    minNumber = finances[j];
+  }
+}
+
+console.log("Greatest Decrease in Profits/Losses: " + minNumber);
+
+/* Min number code -end  */ 
+
+
 // var something = profit [profit]
 
 // console.log (" The month win/losses is" + something)
