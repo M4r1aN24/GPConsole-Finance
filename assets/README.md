@@ -14,7 +14,7 @@ https://m4r1an24.github.io/GPConsole-Finance/
 
 The following showing a screenshot of the console: 
 
-![Alt text](<Screenshot 2023-10-23 190326.png>)
+![Alt text](<../Screenshot 2023-10-23 190326.png>)
 
 ## Credits
 
