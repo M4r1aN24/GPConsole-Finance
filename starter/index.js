@@ -92,23 +92,23 @@ var finances = [
 console.log("Financial Analysis");
 console.log("-----------------");
 
-
+var months = finances.length
 var totalMonths = 0;
 
-for (var i = 0; i < finances.length; i++) {
-    totalMonths = totalMonths + finances[i][0];
+for (var i = 0; i < months; i++) {
+    
 }
-console.log("Total Months: " + totalMonths);
+console.log("Total Months: " + months);
 
 var totalSum = 0;
 
-for (var i = 0; i < finances.length; i++) {
+for (var i = 0; i < months; i++) {
     totalSum = totalSum + finances[i][1];
 }
 
 console.log("Total: "  + totalSum);
 
-for (var i = 1; i < finances.length; i++) { // i = i - 1 is the same as i--
+for (var i = 1; i < months; i++) { // i = i - 1 is the same as i--
   var howMuchIsGoneNow = finances[i][1];
   var lastMonth = finances[i - 1][1];
   var howMuchRemained = howMuchIsGoneNow - lastMonth;
@@ -116,13 +116,13 @@ for (var i = 1; i < finances.length; i++) { // i = i - 1 is the same as i--
 
 }
 
-var averageChange = howMuchRemained / finances.length;
+var averageChange = howMuchRemained / months;
 console.log("Average Change: " + averageChange);
 
 
  /* Max number code - start  */ 
 var maxNumber = 0;
-for (var i = 0; i < finances.length; i+=1) {
+for (var i = 0; i < months; i+=1) {
     if (finances[i] > maxNumber) {
         maxNumber = finances[i];
   }
@@ -134,9 +134,9 @@ console.log("Greatest Increase in Profits/Losses: " + maxNumber);
 /* Min number code - start  */ 
 var minNumber = 0;
 
-for (var j = 0; j > finances.length; j++) {
-  if (finances[j] < minNumber) {
-    minNumber = finances[j];
+for (var i = 0; i > months; i++) {
+  if (finances[i] < minNumber) {
+    minNumber = finances[i];
   }
 }
 
