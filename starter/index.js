@@ -1,6 +1,6 @@
 var finances = [
   ['Jan-2010', 867884],
-  ['Feb-2010', 984655],// changes 984655 - previous month 8678884
+  ['Feb-2010', 984655],// changes 984655 - previous month 867884
   ['Mar-2010', 322013],// change current month 322013 - 984655 etc
   ['Apr-2010', -69417],
   ['May-2010', 310503],
@@ -94,11 +94,14 @@ console.log("-----------------");
 
 var months = finances.length
 var totalMonths = 0;
+var maxNumber = 0;
+var minNumber = 0;
+var maxMonth = "";
+var minMonth = "";
 
 for (var i = 0; i < months; i++) {
     
 }
-console.log("Total Months: " + months);
 
 var totalSum = 0;
 
@@ -106,60 +109,30 @@ for (var i = 0; i < months; i++) {
     totalSum = totalSum + finances[i][1];
 }
 
-console.log("Total: "  + totalSum);
+var totalChange = 0; 
 
-for (var i = 1; i < months; i++) { // i = i - 1 is the same as i--
+for (var i = 1; i < months; i++) { 
   var howMuchIsGoneNow = finances[i][1];
   var lastMonth = finances[i - 1][1];
   var howMuchRemained = howMuchIsGoneNow - lastMonth;
-  console.log("Month to month changes: " + howMuchRemained + i);
+  
+  totalChange = totalChange + howMuchRemained;
 
+  if (howMuchRemained > maxNumber) {
+    maxNumber = howMuchRemained;
+    maxMonth = finances[i][0];
 }
 
-var averageChange = howMuchRemained / months;
-console.log("Average Change: " + averageChange);
-
-
- /* Max number code - start  */ 
-var maxNumber = 0;
-for (var i = 0; i < months; i+=1) {
-    if (finances[i] > maxNumber) {
-        maxNumber = finances[i];
-  }
+if (howMuchRemained < minNumber) {
+  minNumber = howMuchRemained;
+  minMonth = finances[i][0];
 }
-console.log("Greatest Increase in Profits/Losses: " + maxNumber);
+  
+ }
+var averageChange = totalChange / months;
 
-/* Max number code - end  */ 
-
-/* Min number code - start  */ 
-var minNumber = 0;
-
-for (var i = 0; i > months; i++) {
-  if (finances[i] < minNumber) {
-    minNumber = finances[i];
-  }
-}
-
-console.log("Greatest Decrease in Profits/Losses: " + minNumber);
-
-/* Min number code -end  */ 
-
-
-// var something = profit [profit]
-
-// console.log (" The month win/losses is" + something)
-
-
-// Your task is to write JavaScript code that analyzes the records to calculate each of the following:
-
-// * The total number of months included in the dataset.
-
-// * The net total amount of Profit/Losses over the entire period.
-
-// * The average of the **changes** in Profit/Losses over the entire period.
-//   * You will need to track what the total change in Profit/Losses are from month to month and then find the average.
-//   * (`Total/(Number of months - 1)`)
-
-// * The greatest increase in Profit/Losses (date and amount) over the entire period.
-
-// * The greatest decrease in Profit/Losses (date and amount) over the entire period.
+console.log("Total Months: " + months 
++ "\nTotal: "  + totalSum 
++ "\nAverage Change: " + averageChange.toFixed(2) 
++ "\nGreatest Increase in Profits/Losses: " + maxMonth + " " + maxNumber 
++ "\nGreatest Decrease in Profits/Losses: " + minMonth + " " + minNumber );
